@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Валентинка для манюні</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slide active" id="slide1">
+            <h2 class="title">Валентинка для манюні</h2>
+            <img src="img/photo1.jpg" class="slide-img" alt="Фото 1">
+            <img src="img/next.png" class="next-btn" onclick="nextSlide()" alt="Далі">
+        </div>
+        <div class="slide" id="slide2">
+            <h2>Вітаю тебе моя кохана з нашим другим днем всіх закоханих!</h2>
+            <img src="img/photo2.jpg" class="slide-img" alt="Фото 2">
+            <img src="img/next.png" class="next-btn" onclick="nextSlide()" alt="Далі">
+        </div>
+        <div class="slide" id="slide3">
+            <h2>Дякую за ще один рік закоханості в таку чудову дівчину як ти.</h2>
+            <img src="img/photo3.jpg" class="slide-img" alt="Фото 3">
+            <img src="img/next.png" class="next-btn" onclick="nextSlide()" alt="Далі">
+        </div>
+        <div class="slide" id="slide4">
+            <h2>Залишайся і надалі такою чудовою людиною та найкращою дівчиною!</h2>
+            <img src="img/photo4.jpg" class="slide-img" alt="Фото 4">
+            <img src="img/next.png" class="next-btn" onclick="nextSlide()" alt="Далі">
+        </div>
+        <div class="slide" id="slide5">
+            <h2>Впевнений що поруч із тобою у нас буде ще купа і купа сумісних пригод та спогадів.</h2>
+            <img src="img/photo5.jpg" class="slide-img" alt="Фото 5">
+            <img src="img/next.png" class="next-btn" onclick="nextSlide()" alt="Далі">
+        </div>
+        <div class="slide" id="slide6">
+            <h2>Давай і надалі будемо тримати руку одне одного і гріти одне одного не тільки взимку!</h2>
+            <img src="img/photo6.jpg" class="slide-img" alt="Фото 6">
+            <img src="img/next.png" class="next-btn" onclick="nextSlide()" alt="Далі">
+        </div>
+        <div class="slide" id="slide7">
+            <h2>Ти будеш моєю валентинкою?</h2>
+            <img src="img/photo7.jpg" class="slide-img" alt="Фото 7">
+            <div class="choice">
+                <button onclick="nextSlide()">Так!</button>
+                <button onclick="nextSlide()">Звичайно!!!</button>
+            </div>
+        </div>
+        <div class="slide last-slide" id="slide8">
+            <h2>Люблю тебе!!!</h2>
+            <img src="img/love.gif" class="slide-img" alt="Гіфка">
+        </div>
+    </div>
+
+    <!-- Музика на фоні -->
+    <audio id="background-music" loop autoplay>
+        <source src="audio/love-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Кнопка для вимкнення/ввімкнення звуку -->
+    <button class="music-btn" onclick="toggleMusic()">🔊</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
