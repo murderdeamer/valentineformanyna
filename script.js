@@ -1,79 +1,41 @@
-body {
-    background: linear-gradient(to bottom, #ffcccc, #ff99cc);
-    font-family: 'Arial', sans-serif;
-    overflow: hidden;
-    text-align: center;
-    position: relative;
-}
+let slideIndex = 0;
 
-.slideshow-container {
-    max-width: 80%;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-}
-
-.slide {
-    display: none;
-    opacity: 0;
-    transition: opacity 1s ease;
-}
-
-.slide.active {
-    display: block;
-    opacity: 1;
-}
-
-h2 {
-    color: #ff6699;
-}
-
-.slide-img {
-    max-width: 80%;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.next-btn {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    cursor: pointer;
-}
-
-.music-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #fff;
-    border: none;
-    border-radius: 50%;
-    font-size: 1.5em;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1001;
-}
-
-@keyframes heart {
-    0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
+function nextSlide() {
+    const slides = document.querySelectorAll('.slide');
+    slides[slideIndex].classList.remove('active');
+    slideIndex++;
+    if (slideIndex >= slides.length) {
+        slideIndex = 0;
     }
-    100% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
-    }
+    slides[slideIndex].classList.add('active');
 }
 
-.heart {
-    width: 30px;
-    height: 30px;
-    background: url('img/heart.png') no-repeat center;
-    background-size: cover;
-    position: fixed;
-    top: -10%;
-    animation: heart 5s linear infinite;
-    pointer-events: none;
-    z-index: 1000;
+window.onload = () => {
+    document.querySelectorAll('.slide')[0].classList.add('active');
+    setInterval(createHeart, 500);
+};
+
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+function toggleMusic() {
+    const music = document.getElementById("background-music");
+    const musicBtn = document.querySelector(".music-btn");
+
+    if (music.paused) {
+        music.play();
+        musicBtn.textContent = "🔊";
+    } else {
+        music.pause();
+        musicBtn.textContent = "🔇";
+    }
 }
